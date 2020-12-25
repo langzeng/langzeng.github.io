@@ -5,9 +5,11 @@ date: 2020-12-25 20:02:51 +0800
 categories: Github Pages
 ---
 
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+You can use an inline formula $$\forall x \in R$$ like this one
 
-you can use an inline formula $$\forall x \in R$$ like this one
+{% highlight ruby %}
+$$\forall x \in R$$
+{% endhighlight %}
 
 $$
 M = \left( \begin{array}{ccc}
@@ -22,3 +24,5 @@ Add this script in your page:
 {% highlight ruby %}
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 {% endhighlight %}
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
