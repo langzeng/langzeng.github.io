@@ -11,7 +11,7 @@ layout: home
   <div class="post">
     <h1 class="post-title">
       <a href="{{ post.url | absolute_url }}">
-        {{ post.title }}
+        <p style="font-size:20px">{{ post.title }}</p>
       </a>
     </h1>
   </div>
