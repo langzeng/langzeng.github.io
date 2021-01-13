@@ -50,7 +50,7 @@ When programming the gradient function, a beneficial habit is to do the gradient
 
 Last but not least, **random initialization** is very important in the programming. Zero initialization won't give us a right solution since the gradient for each $$\Theta^{(l)}$$ will be exactly the same. Details chould be checked in Week 5, Machine Learning in Coursera.
 
-<img src="/img/2021-01-13-Zero Initialization.png" width="40">
+<img src="/img/2021-01-13-Zero Initialization.png" width="100">
 
 [This article](https://medium.com/@safrin1128/weight-initialization-in-neural-network-inspired-by-andrew-ng-e0066dc4a566#:~:text=Zero%20initialization%3A&text=If%20all%20the%20weights%20are,will%20produce%20a%20poor%20result.) shows the alternative for initialization such as He initialization. I will try to explore why He initialization works better latter.
 
