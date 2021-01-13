@@ -15,12 +15,11 @@ Below is a neural network model (img from Week5, Machine Learning in Coursera).
 
 Weights for layer l $$\mathbb{\theta}^{(l)} \in \mathbb{R}^{s_l\times s_{l+1}}$$. Design matrix $$X \in \mathbb{R}^{m\times n+1}$$ where m is the number of sample and n is the number of features. The first column of $$X$$ is all one. 
 
-$$
-1 \text{Feed-forward: calculate all }(z^{(l)},a^{(l)}), z^{(l+1)}=\mathbb{\theta}^{(l)}a^{(l)}\text{ and }a^{(l+1)}=g(z^{(l+1)})\text{ remember to add a_0^{l+1}=1}.
-2 \delta^{(L)}=a^{(L)}-y.
-3 \delta^{(l)}=(\mathbb{\theta^{l}})^T\delta^{(l+1)}.\*g'(z^{(l)}).
-4 \Delta^{(l)}=\Delta^{(l)}+\delta^{(l+1)}(a^{(l)})^T (Remember to remove \delta_0^{(l+1)}).
-$$
+1. Feed-forward: calculate all $$(z^{(l)},a^{(l)}), z^{(l+1)}=\mathbb{\theta}^{(l)}a^{(l)}$$ and $$a^{(l+1)}=g(z^{(l+1)})$$ remember to add $$a_0^{l+1}=1$$.
+1. $$\delta^{(L)}=a^{(L)}-y$$.
+1. $$\delta^{(l)}=(\mathbb{\theta}^{l})^T\delta^{(l+1)}.*g'(z^{(l)})$$.
+1. $$\Delta^{(l)}=\Delta^{(l)}+\delta^{(l+1)}(a^{(l)})^T$$. Remember to remove $$\delta_0^{(l+1)})$$.
+1. $$\fraction{\partial}{\partial \mathbb{\theta}^{l}_{ij}}J(\mathbb{\theta})=\frac{1}{m}\Delta^{(l)}_{ij}$$.
 
 [column-row expansion equals the matrix multiplication](https://math.stackexchange.com/questions/1819403/proving-the-column-row-expansion-of-two-matrices-a-and-b-is-equal-to-the-pro)
 
