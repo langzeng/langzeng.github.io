@@ -24,9 +24,10 @@ For each example $$i$$:
    1. $$\frac{\partial}{\partial \mathbf{\Theta}^{(l)}_{ij}}J(\mathbf{\Theta})=\frac{1}{m}\Delta^{(l)}_{ij}$$ for j=0.
    1. $$\frac{\partial}{\partial \mathbf{\Theta}^{(l)}_{ij}}J(\mathbf{\Theta})=\frac{1}{m}\Delta^{(l)}_{ij}+\frac{\lambda}{m}\mathbf{\Theta}^{(l)}_{ij}$$ for j>0.
 
-Vectorization (hence without the for loop for each example $$i$$) for steps above is easy except the step 4 $$\Delta^{(l)}=\Delta^{(l)}+\delta^{(l+1)}(a^{(l)})^T$$. To program $$\delta^{(l+1)}(a^{(l)})^T$$ in matrix operation, we need column-row expansion multiplication: $$A_{m\times n}\otimes B_{n \times k}$$ equals each column in $$A$$  multiply (matrix multiplication) by the corresponding row in $$B$$ and take the summation of those n items. Column-row expansion multiplication gives a $$m\times k$$ matrix. An interestion result is that [column-row expansion equals the matrix multiplication](https://math.stackexchange.com/questions/1819403/proving-the-column-row-expansion-of-two-matrices-a-and-b-is-equal-to-the-pro). Thus it can be simply programmed as $$\delta^{(l+1)}a^{(l)}$$ (Each example corresponding to one row of $$a^{(l)}$$ in my coding).
+Vectorization (hence without the for loop for each example $$i$$) for steps above is easy except the step 4 $$\Delta^{(l)}=\Delta^{(l)}+\delta^{(l+1)}(a^{(l)})^T$$. To program $$\delta^{(l+1)}(a^{(l)})^T$$ in matrix operation, we need **column-row expansion** multiplication: $$A_{m\times n}\otimes B_{n \times k}$$ equals each column in $$A$$  multiply (matrix multiplication) by the corresponding row in $$B$$ and take the summation of those n items. Column-row expansion multiplication gives a $$m\times k$$ matrix. An interestion result is that [column-row expansion equals the matrix multiplication](https://math.stackexchange.com/questions/1819403/proving-the-column-row-expansion-of-two-matrices-a-and-b-is-equal-to-the-pro). Thus it can be simply programmed as $$\delta^{(l+1)}a^{(l)}$$ (Each example corresponding to one row of $$a^{(l)}$$ in my coding).
 
-Below is the matlab code of feed-forward and back-proporgation algorithm for the neural network model in the figure above:
+Below is the matlab code of feed-forward and back-proporgation algorithm for the neural network model in the neurons figure above:
+
 ```matlab
 X = [ones(m,1) X];
 z2 = X*Theta1';
@@ -42,7 +43,14 @@ Delta2 = delta3*a2;
 Theta1_grad = Delta1/m+lambda*[zeros(size(Theta1,1),1) Theta1(:,2:end)]/m;
 Theta2_grad = Delta2/m+lambda*[zeros(size(Theta2,1),1) Theta2(:,2:end)]/m;
 ```
+When programming the gradient function, a beneficial habit is to do the gradient checking with $$\frac{f(x+\epsilon)-f(x-\epsilon)}{2\epsilon}$$ for each dimension.
 
-[This blog](https://adventuresinmachinelearning.com/neural-networks-tutorial/) gives a very detailed tutorial about the gradient descent algorithm for neural network. It also shows how to implement the algorithm in python.
+[This blog](https://adventuresinmachinelearning.com/neural-networks-tutorial/) gives a very detailed tutorial about the gradient descent algorithm for neural network. It shows how to implement the algorithm in python.
+
+Last but not least, **random initialization** is very important in the programming. Zero initialization won't give us a right solution since the gradient for each $$\Theta^{(l)}$$ will be exactly the same. Details chould be checked in Week 5, Machine Learning in Coursera.
+
+<img src="/img/2021-01-13-Zero Initialization.png" width="400">
+
+[This article](https://medium.com/@safrin1128/weight-initialization-in-neural-network-inspired-by-andrew-ng-e0066dc4a566#:~:text=Zero%20initialization%3A&text=If%20all%20the%20weights%20are,will%20produce%20a%20poor%20result.) shows the alternative for initialization such as He initialization. I will try to explore why He initialization works better latter.
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
