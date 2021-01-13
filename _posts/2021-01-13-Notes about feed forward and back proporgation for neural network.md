@@ -10,15 +10,19 @@ Feed forward and back proporgation is widely used to train a neural network mode
 
 Below is a neural network model (img from Week5, Machine Learning in Coursera). 
 
-![Neural Network Model(from Week5, Machine Learning in Coursera)](/img/2021-01-13-neural network model.png)
-![Neural Network Model(from Week5, Machine Learning in Coursera)](/img/2021-01-13-Backproporgation.png)
+<img src="/img/2021-01-13-neural network model.png" width="300">
+<img src="/img/2021-01-13-Backproporgation.png" width="300">
+
+Weights for layer l $$\mathbb{\theta}^{(l)} \in \mathbb{R}^{s_l\times s_{l+1}}$$. Design matrix $$X \in \mathbb{R}^{m\times n+1}$$ where m is the number of sample and n is the number of features. The first column of $$X$$ is all one. 
 
 $$
-\theta^l \in \mathbb{R}^{s_l\times s_{l+1}}
+\begin{enumerate}
+	\item \text{Feed-forward: calculate all }(z^{(l)},a^{(l)}), z^{(l+1)}=\mathbb{\theta}^{(l)}a^{(l)}\text{ and }a^{(l+1)}=g(z^{(l+1)})\text{ remember to add a_0^{l+1}=1}.
+	\item \delta^{(L)}=a^{(L)}-y.
+	\item \delta^{(l)}=(\mathbb{\theta^{l}})^T\delta^{(l+1)}.*g'(z^{(l)}).
+\end{enumerate}
 $$
 
 [column-row expansion equals the matrix multiplication](https://math.stackexchange.com/questions/1819403/proving-the-column-row-expansion-of-two-matrices-a-and-b-is-equal-to-the-pro)
 
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-<img src="/img/2021-01-13-neural network model.png" width="480">
-<img src="/img/2021-01-13-Backproporgation.png" width="480">
