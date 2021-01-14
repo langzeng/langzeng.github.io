@@ -23,6 +23,7 @@ For each example $$i$$:
 1. $$\frac{\partial}{\partial \mathbf{\Theta}^{(l)}_{ij}}J(\mathbf{\Theta})=\frac{1}{m}\Delta^{(l)}_{ij}$$, while using regulization:
    1. $$\frac{\partial}{\partial \mathbf{\Theta}^{(l)}_{ij}}J(\mathbf{\Theta})=\frac{1}{m}\Delta^{(l)}_{ij}$$ for j=0.
    1. $$\frac{\partial}{\partial \mathbf{\Theta}^{(l)}_{ij}}J(\mathbf{\Theta})=\frac{1}{m}\Delta^{(l)}_{ij}+\frac{\lambda}{m}\mathbf{\Theta}^{(l)}_{ij}$$ for j>0.
+
 Sum them up over all $$i$$.
 
 Vectorization (hence without the for loop for each example $$i$$) for steps above is easy except the step 4 $$\Delta^{(l)}=\Delta^{(l)}+\delta^{(l+1)}(a^{(l)})^T$$. To program $$\delta^{(l+1)}(a^{(l)})^T$$ in matrix operation, we need **column-row expansion** multiplication: $$A_{m\times n}\otimes B_{n \times k}$$ equals each column in $$A$$  multiply (matrix multiplication) by the corresponding row in $$B$$ and take the summation of those n items. Column-row expansion multiplication gives a $$m\times k$$ matrix. An interestion result is that [column-row expansion equals the matrix multiplication](https://math.stackexchange.com/questions/1819403/proving-the-column-row-expansion-of-two-matrices-a-and-b-is-equal-to-the-pro). Thus it can be simply programmed as $$\delta^{(l+1)}a^{(l)}$$ (Each example corresponding to one row of $$a^{(l)}$$ in my coding).
@@ -30,6 +31,7 @@ Vectorization (hence without the for loop for each example $$i$$) for steps abov
 Below is the matlab code of feed-forward and back-proporgation algorithm for the neural network model in the neurons figure above:
 
 ```matlab
+m = size(X,1);
 X = [ones(m,1) X];
 z2 = X*Theta1';
 a2 = [ones(m,1) sigmoid(z2)];
