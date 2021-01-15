@@ -8,17 +8,23 @@ tags: [Machine Learning, Coursera, Model evaluation, Debug]
 
 Notes below are all coming from Machine Learning course in Coursera.
 
-#### Debugging a learning algorithm
+## Debugging a learning algorithm
 
 While training a model, dataset is usually chopped to training set (to train the weight), cross validation set(or validation set, to tune parameters  e.g. $$\lambda$$, or model selection), test set(to test model performance after parameters being fixed on validation set) with proportion 60%, 20%, 20%. The cost values on the three sets are important for model evaluation and debugging:
 $$
-\Theta=argmin_{\Theta} (cost(\Theta,Training Set)+\lambda\times penalty(\Theta)).
+\Theta=argmin_{\Theta} (cost(\Theta,Training Set)+\lambda\times penalty(\Theta))
+$$
+$$
 J_{train}(\Theta)=cost(\Theta,Training Set)
+$$
+$$
 J_{cv}(\Theta)=cost(\Theta,Validation Set)
+$$
+$$
 J_{test}(\Theta)=cost(\Theta,Test Set)
 $$
 
-##### Bias and Variance
+### Bias and Variance
 
 Bias (underfit) is the case when $$J_{train}(\Theta)$$ is high and $$J_{train}(\Theta)\approx J_{cv}(\Theta)$$.
 
@@ -26,15 +32,15 @@ Variance (overfit) shows low $$J_{train}(\Theta)$$ and $$J_{train}(\Theta)\gg J_
 
 ![Bias and Variance](\img\2021-01-15-Bias and Variance.png)
 
-##### Learning curves
+### Learning curves
 
-Plot $$\J_{train}(\Theta)$$ and $$J_{cv}(\Theta)$$ v.s. training set size to  debug the bias or variance.
+Plot $$J_{train}(\Theta)$$ and $$J_{cv}(\Theta)$$ v.s. training set size to  debug the bias or variance.
 
 ![High bias](\img\2021-01-15-High bias.png)
 
 ![High Variance](\img\2021-01-15-High variance.png)
 
-![Idea Case](\img\2021-01-15-Idea case.png)
+![Idea Case](\img\2021-01-15-Ideal case.png)
 
 "In practice, especially for small training sets, when you plot learning curves to debug your algorithms, it is often helpful to average across multiple sets of randomly selected examples to determine the training error and cross validation error. Concretely, to determine the training error and cross validation error for i  examples, you should first randomly select i examples from the training set and i examples from the cross validation set. You will then learn the parameters $$\theta$$ using the randomly chosen training set and evaluate the parameters $$\theta$$ on the randomly chosen training set and cross validation set. The above steps should then be repeated multiple times (say 50) and the averaged error should be used to determine the training error and cross validation error for i examples."
 
@@ -49,11 +55,11 @@ Six options given by Andrew are:
 
 In short, add more features (compare to #examples) to fix high bias. Drop features (compare to #examples) to fix high variance.
 
-#### Error analysis
+## Error analysis
 
 "It's not who has the best algorithm that wins. It's who has the most data". But getting more training examples should be the last choice since it's quite time-consuming. A useful test is that: given input $$X$$, can a human expert confidently predict y? If so, X contains enough information for y and next step should be adjusting the model (try more complex one?) rather than getting more training examples.
 
-###### Recommended approach:
+#### Recommended approach:
 
 - Start with a simple algorithm that you can implement quickly. Implement it and test it on your cross-validation data.
 - Plot learning curves to decide if more data, more features, etc. are likely to help.
