@@ -20,7 +20,7 @@ For simplicity, let's consider a binary classification problem. The class predic
 
 Suppose $$X$$ follows a probability density $$f_1(x)$$ if the instance is truly "positive", and $$f_0(x)$$ if otherwise. Then $$TPR(T)=\int_T^\infty f_1(x)\mathrm{d}x$$ and $$FPR(T)=\int_T^\infty f_0(x)\mathrm{d}x$$.
 
-![TPR](\img\2021-12-30-TPR.jpg=250x)
+![TPR](\img\2021-12-30-TPR.jpg=250x )
 
 $$
 \begin{align*} 
