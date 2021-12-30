@@ -33,7 +33,7 @@ AUC&=\int_0^1TPR(FPR^{-1}(fpr))\mathrm{d}fpr\\
 \end{align*}
 $$
 
-where $$X__0$$ has density $$f_0$$ and $$X_1$$ has density $$f_1$$. That is "when using normalized units, the area under the curve (often referred to as simply the AUC) is equal to the probability that a classifier will rank a randomly chosen positive instance higher than a randomly chosen negative one (assuming 'positive' ranks higher than 'negative')".[[Reference](https://www.sciencedirect.com/science/article/pii/S016786550500303X?casa_token=DjoOWOyMz6oAAAAA:pRZWRsR-Qv4AO1Op9ZMCbIpUYtBUgv5Cd-4caeX0ND9ePTT5mH_OFqkLLhENNoeCdeL8mYVD4w)]
+where $$X_0$$ has density $$f_0$$ and $$X_1$$ has density $$f_1$$. That is "when using normalized units, the area under the curve (often referred to as simply the AUC) is equal to the probability that a classifier will rank a randomly chosen positive instance higher than a randomly chosen negative one (assuming 'positive' ranks higher than 'negative')".[[Reference](https://www.sciencedirect.com/science/article/pii/S016786550500303X?casa_token=DjoOWOyMz6oAAAAA:pRZWRsR-Qv4AO1Op9ZMCbIpUYtBUgv5Cd-4caeX0ND9ePTT5mH_OFqkLLhENNoeCdeL8mYVD4w)]
 
 [Wikipedia](https://en.m.wikipedia.org/wiki/Receiver_operating_characteristic ) has more details about ROC properties.
 
